@@ -3,29 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Python Powered Site</title>
+    <title>Pipeline Engineering Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
             color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
             text-align: center;
-            padding: 50px;
+            padding: 60px 20px;
         }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin-top: 10px; font-size: 1.2rem; opacity: 0.9; }
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: inline-block;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
-        h1 { color: #4CAF50; }
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 5px solid #1e3c72;
+        }
+        .section h2 {
+            color: #1e3c72;
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
+
+    <header>
+        <h1>Welcome to Pipeline Engineering</h1>
+        <p>Designing, analyzing, and maintaining safe fluid transport systems.</p>
+    </header>
+
     <div class="container">
-        <h1>Welcome to My Free Website!</h1>
-        <p>This website's HTML was compiled entirely using a Python script and is hosted for free on GitHub Pages.</p>
+        <!-- Section 1: About Me / Overview -->
+        <div class="section">
+            <h2>About Pipeline Engineering</h2>
+            <p>Pipeline engineering involves the specialized design, construction, operation, and maintenance of pipeline systems. These systems form the critical infrastructure required to safely transport liquids, gases, and slurries over long distances.</p>
+        </div>
+
+        <!-- Section 2: Core Expertise -->
+        <div class="section">
+            <h2>Core Expertise & Services</h2>
+            <ul>
+                <li><strong>Hydraulic Analysis:</strong> Flow modeling, pressure drop calculations, and surge analysis.</li>
+                <li><strong>Mechanical Design:</strong> Pipe stress analysis, wall thickness calculation, and material selection.</li>
+                <li><strong>Integrity Management:</strong> Corrosion control, inline inspection data analysis, and risk assessments.</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Projects -->
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <p>Details about ongoing or completed pipeline engineering projects, simulation models, or research papers will go here.</p>
+        </div>
     </div>
+
+    <footer>
+        <p>&copy; Pipeline Engineering Portfolio. Generated with Python.</p>
+    </footer>
+
 </body>
 </html>
