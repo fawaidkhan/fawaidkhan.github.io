@@ -3,46 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipeline Engineering Portfolio</title>
+    <title>Water Pipeline Project Management Portal</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            background-color: #f8f9fa;
+            background-color: #f4f7f6;
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
-        header h1 { margin: 0; font-size: 2.5rem; }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
         header p { margin-top: 10px; font-size: 1.2rem; opacity: 0.9; }
+        
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 30px auto;
             padding: 0 20px;
         }
-        .section {
+        
+        .overview-card {
             background: white;
-            padding: 25px;
-            margin-bottom: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-left: 5px solid #1e3c72;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid #203a43;
         }
-        .section h2 {
-            color: #1e3c72;
-            margin-top: 0;
+        .overview-card h3 { margin-top: 0; color: #203a43; font-size: 1.4rem; }
+        .overview-list { list-style: none; padding: 0; }
+        .overview-list li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            background: #eef2f3;
+            border-left: 4px solid #0072ff;
+            border-radius: 0 4px 4px 0;
+            font-weight: 500;
         }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .tab-btn {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #555;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .tab-btn:hover {
+            background: #eef2f3;
+            color: #2c5364;
+        }
+        .tab-btn.active {
+            background: #203a43;
+            color: white;
+            border-color: #203a43;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.4s ease;
+        }
+        .tab-content.active { display: block; }
+        .tab-content h2 { color: #203a43; margin-top: 0; border-bottom: 2px solid #f4f7f6; padding-bottom: 10px; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             font-size: 0.9rem;
-            color: #666;
+            color: #777;
+            background: #eef2f3;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -50,36 +106,146 @@
 
     <header>
         <h1>Welcome to Pipeline Engineering</h1>
-        <p>Designing, analyzing, and maintaining safe fluid transport systems.</p>
+        <p>A professional knowledge-management and execution platform for water pipeline projects.</p>
     </header>
 
     <div class="container">
-        <!-- Section 1: About Me / Overview -->
-        <div class="section">
-            <h2>About Pipeline Engineering</h2>
-            <p>Pipeline engineering involves the specialized design, construction, operation, and maintenance of pipeline systems. These systems form the critical infrastructure required to safely transport liquids, gases, and slurries over long distances.</p>
-        </div>
-
-        <!-- Section 2: Core Expertise -->
-        <div class="section">
-            <h2>Core Expertise & Services</h2>
-            <ul>
-                <li><strong>Hydraulic Analysis:</strong> Flow modeling, pressure drop calculations, and surge analysis.</li>
-                <li><strong>Mechanical Design:</strong> Pipe stress analysis, wall thickness calculation, and material selection.</li>
-                <li><strong>Integrity Management:</strong> Corrosion control, inline inspection data analysis, and risk assessments.</li>
+        
+        <div class="overview-card">
+            <h3>System Framework</h3>
+            <p>This website covers the full lifecycle of water pipeline projects from project award to commissioning and handover. The website acts like a:</p>
+            <ul class="overview-list">
+                <li>• Project execution manual</li>
+                <li>• Engineering knowledge base</li>
+                <li>• Site document control system</li>
+                <li>• Training platform</li>
+                <li>• Construction workflow tracker</li>
             </ul>
         </div>
 
-        <!-- Section 3: Projects -->
-        <div class="section">
-            <h2>Featured Projects</h2>
-            <p>Details about ongoing or completed pipeline engineering projects, simulation models, or research papers will go here.</p>
+        <h3 style="color:#203a43; margin-bottom:15px;">Project Modules & Control Sections</h3>
+        
+        <div class="tabs-nav">
+            <button class="tab-btn active" onclick="openSection(event, 'lifecycle')">Project Lifecycle</button>
+            <button class="tab-btn" onclick="openSection(event, 'library')">Technical Library</button>
+            <button class="tab-btn" onclick="openSection(event, 'activities')">Construction Activities</button>
+            <button class="tab-btn" onclick="openSection(event, 'qaqc')">QA/QC & Inspection</button>
+            <button class="tab-btn" onclick="openSection(event, 'drawings')">Drawings & Shop Drawings</button>
+            <button class="tab-btn" onclick="openSection(event, 'scada')">SCADA & Instrumentation</button>
+            <button class="tab-btn" onclick="openSection(event, 'photos')">Site Photos</button>
+            <button class="tab-btn" onclick="openSection(event, 'safety')">Safety & Method Statements</button>
         </div>
+
+        <div id="lifecycle" class="tab-content active">
+            <h2>Project Lifecycle</h2>
+            <p>Tracking the full lifespan of the pipe network infrastructure from deployment to execution:</p>
+            <ul>
+                <li>Phase 1: Project Award & Initiation Framework</li>
+                <li>Phase 2: Detailed Engineering Design & Value Engineering</li>
+                <li>Phase 3: Procurement & Strategic Materials Logistics</li>
+                <li>Phase 4: Construction Execution Phase Tracking</li>
+                <li>Phase 5: Pre-commissioning, Hydrotesting, & Cleaning Operations</li>
+                <li>Phase 6: Final Commissioning, Asset Handover, and Closeout Documentation</li>
+            </ul>
+        </div>
+
+        <div id="library" class="tab-content">
+            <h2>Technical Library</h2>
+            <p>Central knowledge base for project codes, data records, and criteria references:</p>
+            <ul>
+                <li>International Pipeline Standards (AWWA, ASME, API, ISO)</li>
+                <li>Project Specifications & Material Data Sheets</li>
+                <li>Hydraulic Modeling and Transient Surge Calculations</li>
+                <li>Soil Investigation and Geotechnical Data Indexes</li>
+            </ul>
+        </div>
+
+        <div id="activities" class="tab-content">
+            <h2>Construction Activities</h2>
+            <p>On-site activity tracking matrix and structural operations checklist:</p>
+            <ul>
+                <li>Right of Way (ROW) Clearing & Grading Management</li>
+                <li>Trench Excavation, Shoring Engineering, & Bedding Prep</li>
+                <li>Pipe Stringing, Aligning, and Pipeline Joint Assembly</li>
+                <li>Backfilling Operations & Terrain Reinstatement</li>
+            </ul>
+        </div>
+
+        <div id="qaqc" class="tab-content">
+            <h2>QA/QC & Inspection</h2>
+            <p>Quality management dashboard and field assurance documentation hubs:</p>
+            <ul>
+                <li>Material Inspection Requests (MIR) Logs</li>
+                <li>Welding/Jointing Quality Records & Non-Destructive Testing (NDT)</li>
+                <li>Hydrostatic Testing Protocols & Pressure Test Certificates</li>
+                <li>Inspection & Test Plans (ITP) Archive</li>
+            </ul>
+        </div>
+
+        <div id="drawings" class="tab-content">
+            <h2>Drawings & Shop Drawings</h2>
+            <p>Version control registry for working project documents:</p>
+            <ul>
+                <li>Approved-for-Construction (AFC) Design Sets</li>
+                <li>Pipeline Route Alignment Sheets & Profiles</li>
+                <li>Standard Connection Details and Specialized Vault Structural Layouts</li>
+                <li>Redline Markups and Final As-Built Documentation Packages</li>
+            </ul>
+        </div>
+
+        <div id="scada" class="tab-content">
+            <h2>SCADA & Instrumentation</h2>
+            <p>Automation layouts, telemetry logic, and systems criteria tracking:</p>
+            <ul>
+                <li>Flowmeter & Flow Control Valve Vault Network Layouts</li>
+                <li>Remote Terminal Unit (RTU) & Telemetry Interface Maps</li>
+                <li>Surge Relief Valve Parameters & Pressure Transmitter Thresholds</li>
+            </ul>
+        </div>
+
+        <div id="photos" class="tab-content">
+            <h2>Site Photos</h2>
+            <p>Visual tracking gallery from project milestones:</p>
+            <ul>
+                <li>Pre-construction Site Surveys</li>
+                <li>Pipeline Laying & Technical Crossing Progress Assets</li>
+                <li>Vault Structural Concrete Pours and Mechanical Fit-outs</li>
+            </ul>
+        </div>
+
+        <div id="safety" class="tab-content">
+            <h2>Safety & Method Statements</h2>
+            <p>HSE compliance files and safe operations criteria registers:</p>
+            <ul>
+                <li>Approved Method Statements for Confined Spaces & Heavy Lifts</li>
+                <li>Job Safety Analyses (JSA) & Hazard Identification Logs</li>
+                <li>Site Safety Performance Metrics & Toolbox Talk Records</li>
+            </ul>
+        </div>
+
     </div>
 
     <footer>
-        <p>&copy; Pipeline Engineering Portfolio. Generated with Python.</p>
+        <p>&copy; Water Pipeline Project Management Portal. Operational Infrastructure Database Hub.</p>
     </footer>
+
+    <script>
+        function openSection(evt, sectionId) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(sectionId).style.display = "block";
+            document.getElementById(sectionId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
 
 </body>
 </html>
